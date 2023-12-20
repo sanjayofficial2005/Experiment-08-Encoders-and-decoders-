@@ -1,4 +1,5 @@
-# Experiment-08- Encoders-and-decoders 
+## Date :
+## Exp No:08- Encoders-and-decoders 
 ### AIM: To implement 8 to 3 Encoder and  3to8 Decoder using verilog and validate its outputs
 ### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
 ### SOFTWARE REQUIRED:   Quartus prime
@@ -59,19 +60,66 @@ D7 = X Y Z
 
 
 
-### PROGRAM 
-/*
+### PROGRAM :
+```python
 Program for Endocers and Decoders  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by:SANJAY M 
+RegisterNumber:23013084  
+
+
+## ENCODER:
+
+module encoder (d0,d1,d2,d3,d4,d5,d6,d7,x,y,z);
+input d0,d1,d2,d3,d4,d5,d6,d7;
+output x,y,z;
+or (x,d4,d5,d6,d7);
+or (y,d2,d3,d5,d7);
+or (z,d1,d3,d5,d7);
+endmodule
+
+## DECODER:
+
+module exp8(a0,a1,a2,y0,y1,y2,y3,y4,y5,y6,y7);
+input a0,a1,a2;
+output y0,y1,y2,y3,y4,y5,y6,y7;
+wire a0bar,a1bar,a2bar;
+not (a0bar,a0);
+not (a1bar,a1);
+not (a2bar,a2);
+and (y0,a0bar,a1bar,a2bar);
+and (y1,a0bar,a1bar,a2);
+and (y2,a0bar,a1,a2bar);
+and (y3,a0bar,a1,a2);
+and (y4,a0,a1bar,a2bar);
+and (y5,a0,a1bar,a2);
+and (y6,a0,a1,a2bar);
+and (y7,a0,a1,a2);
+endmodule
+```
+
+
+### RTL LOGIC :
+## ENCODER:
+![Screenshot 2023-12-20 123628](https://github.com/sanjayofficial2005/Experiment-08-Encoders-and-decoders-/assets/148048602/46c1dab3-e07a-4906-8049-d8e1a2d251da)
+
+
+## DECODER:
+![Screenshot 2023-12-20 123619](https://github.com/sanjayofficial2005/Experiment-08-Encoders-and-decoders-/assets/148048602/84862501-7040-4129-a142-37a297c3bbfc)
 
 
 
 
 
 
-### RTL LOGIC  
+
+
+
+### TIMING DIGRAMS :
+## ENCODER:
+![Screenshot 2023-12-20 123609](https://github.com/sanjayofficial2005/Experiment-08-Encoders-and-decoders-/assets/148048602/e32cf444-015e-4966-8358-df5123763be6)
+
+## DECODER:
+![Screenshot 2023-12-20 123557](https://github.com/sanjayofficial2005/Experiment-08-Encoders-and-decoders-/assets/148048602/5823a804-3af6-4ae0-a429-9e1a60cdd9d4)
 
 
 
@@ -80,17 +128,20 @@ RegisterNumber:
 
 
 
-### TIMING DIGRAMS  
+### TRUTH TABLE :
+## ENCODER:
+![Screenshot 2023-12-20 123525](https://github.com/sanjayofficial2005/Experiment-08-Encoders-and-decoders-/assets/148048602/116b402b-d620-4d7b-937e-43cb55f47ed3)
+
+
+## DECODER:
+![Screenshot 2023-12-20 123538](https://github.com/sanjayofficial2005/Experiment-08-Encoders-and-decoders-/assets/148048602/630a23e7-d38f-4dd5-9baf-e5e4942b6366)
 
 
 
 
 
-### TRUTH TABLE 
 
 
 
-
-
-
-### RESULTS 
+### RESULTS :
+This experiment runned succesfully.
